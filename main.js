@@ -27,7 +27,7 @@ form.addEventListener('submit', function(event) {
 
 function fetchArtists(search) {
   document.querySelector('.results').textContent = ""
-fetch('http://api.soundcloud.com/users/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&q='+search+"'")
+fetch(`http://api.soundcloud.com/users/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&q=${search}`)
    .then( function(response){
      return response.json()
    })
@@ -58,12 +58,15 @@ document.querySelector(".results").insertAdjacentHTML('beforeend', html)
         artist.addEventListener('click', function() {
           document.querySelector('.results').textContent = ''
 
-          fetch('http://api.soundcloud.com/users/'+artist.id+'/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f')
+          fetch(`http://api.soundcloud.com/users/${artist.id}/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&limit=200`)
           .then( function(response){
             return response.json()
           })
           .then(function(json){
             console.log(json);
+            if (json.length > 0) {
+
+
             for (var k = 0; k < json.length; k++) {
               const artwork = json[k].artwork_url
               const title = json[k].title
@@ -81,6 +84,9 @@ document.querySelector(".results").insertAdjacentHTML('beforeend', html)
 
               document.querySelector(".results").insertAdjacentHTML('beforeend', html)
             }
+          } else {
+            document.querySelector('.results').textContent = 'Uh oh!  This artist doesn\'t have any songs available for free.'
+          }
         })
         .then(function() {
           const songs = document.querySelectorAll('.song')
