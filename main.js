@@ -57,7 +57,7 @@ document.querySelector(".results").insertAdjacentHTML('beforeend', html)
         const artist = artists[j]
         artist.addEventListener('click', function() {
           document.querySelector('.results').textContent = ''
-          document.querySelector('.artist-name').textContent = artist.querySelector('.name').textContent
+
           fetch('http://api.soundcloud.com/users/'+artist.id+'/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f')
           .then( function(response){
             return response.json()
@@ -88,6 +88,9 @@ document.querySelector(".results").insertAdjacentHTML('beforeend', html)
           for (var s = 0; s < songs.length; s++) {
             const song = songs[s]
             song.addEventListener('click', function() {
+              document.querySelector('.artist-name').textContent = artist.querySelector('.name').textContent
+              document.querySelector('.album').src = song.querySelector('img').src
+              document.querySelector(".song-title").textContent = song.querySelector('.title').textContent
               audio.src = song.id + "?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f";
               audio.autoplay = true
             })

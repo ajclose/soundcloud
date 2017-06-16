@@ -30,9 +30,10 @@ header {
 }
 
 .artist-name {
-  font-size: 20px;
+  font-size: 30px;
   border: 2px solid yellow;
   width: 100%;
+  text-align: center;
 }
 
 .player {
@@ -42,8 +43,11 @@ header {
   padding: 20px;
 }
 .music-player {
-  border: 2px solid green;
   width: 80%;
+}
+
+.album {
+  width: 100%;
 }
 
 .artist {
@@ -83,11 +87,15 @@ header {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-basis: 17%;
+  flex-basis: 20%;
   flex-grow: 0;
   flex-shrink: 0;
   margin: 10px;
   border: 2px solid green;
+}
+
+.search {
+  margin: 20px 0;
 }
 
 .search-bar {
