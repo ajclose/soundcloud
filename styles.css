@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  display: flex;
+  justify-content: center;
+}
+
+img {
+  width: 100%;
+}
+
+.container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+}
+
+header {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+.artist-name {
+  font-size: 20px;
+  border: 2px solid yellow;
+  width: 100%;
+}
+
+.player {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+.music-player {
+  border: 2px solid green;
+  width: 80%;
+}
+
+.artist {
+  flex-basis: 17%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border: 2px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.name {
+  width: 100%;
+}
+
+.image {
+  width: 100%;
+}
+
+.artwork {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.song {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 17%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin: 10px;
+  border: 2px solid green;
+}
+
+.search-bar {
+  padding: 20px;
+  font-size: 16px;
+}
