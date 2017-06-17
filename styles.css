@@ -5,14 +5,16 @@
 }
 
 body {
-  background-color: #ecf0f1;
+  background-color: #1abc9c;
   color: #2c3e50;
   display: flex;
   justify-content: center;
+  font-family: helvetica;
 }
 
 img {
   width: 100%;
+  border-radius: 5px;
 }
 
 .container {
