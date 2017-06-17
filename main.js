@@ -122,7 +122,7 @@ function fetchTracks(artistid) {
 
 function displayTracks(json){
   console.log(json);
-
+  sort.style.visibility = "visible"
   if (json.length > 0) {
 
     for (var k = 0; k < json.length; k++) {

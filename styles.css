@@ -38,6 +38,7 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  border: none;
 }
 
 .artist-name {
@@ -82,7 +83,6 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 20px 0;
 }
 
 .name {
@@ -138,4 +138,10 @@ header {
   border-radius: 5px;
   border: none;
   margin: 0 5px;
+}
+
+.filter {
+  margin: 20px;
+  align-self: flex-start;
+  visibility: hidden;
 }
