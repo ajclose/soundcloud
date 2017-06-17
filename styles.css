@@ -6,7 +6,7 @@
 
 body {
   background-color: #1abc9c;
-  color: #2c3e50;
+  color: #ecf0f1;
   display: flex;
   justify-content: center;
   font-family: helvetica;
@@ -42,7 +42,7 @@ header {
 
 .artist-name {
   font-size: 30px;
-  border: 2px solid yellow;
+  padding: 10px 0;
   width: 100%;
   text-align: center;
 }
@@ -50,6 +50,7 @@ header {
 .song-title {
   font-size: 20px;
   padding: 10px;
+  text-align: center;
 }
 
 .player {
@@ -107,11 +108,10 @@ header {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  flex-basis: 19%;
+  flex-basis: 17%;
   flex-grow: 0;
   flex-shrink: 0;
-  margin: 10px 0;
-  border: 2px solid green;
+  margin: 10px;
 }
 
 .title {

@@ -139,8 +139,6 @@ function displayTracks(json){
         </div>
         <div class="title">
           ${title}
-          Plays: ${playbackCount}
-          Release Date: ${releaseDate}
         </div>
       </div>
       `
