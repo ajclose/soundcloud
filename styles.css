@@ -149,9 +149,6 @@ header {
 /****************************Tablet styling******************************/
 
 @media screen and (max-width: 1024px) {
-  body {
-    background-color: blue;
-  }
 
   .container {
     width: 100%;
@@ -182,9 +179,6 @@ header {
 /*****************************Mobile Styling******************************/
 
 @media screen and (max-width: 600px) {
-  body {
-    background-color: red;
-  }
 
   .artist {
     flex-basis: 45%;
