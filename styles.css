@@ -73,11 +73,10 @@ header {
   flex-basis: 17%;
   flex-grow: 0;
   flex-shrink: 0;
-  border: 2px solid red;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 10px 0;
+  margin: 10px;
 }
 
 .results {
@@ -149,7 +148,7 @@ header {
 
 /****************************Tablet styling******************************/
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1024px) {
   body {
     background-color: blue;
   }
@@ -159,10 +158,22 @@ header {
   }
 
   .artist {
-    flex-basis: 23%;
+    flex-basis: 24%;
+  }
+
+  .name {
+    font-size: 20px;
   }
 
   .song {
-    flex-basis: 30%;
+    flex-basis: 24%;
+  }
+
+  .title {
+    font-size: 20px;
+  }
+
+  .display-info {
+    width: 30%;
   }
 }
