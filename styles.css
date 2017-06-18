@@ -185,4 +185,16 @@ header {
   body {
     background-color: red;
   }
+
+  .artist {
+    flex-basis: 45%;
+  }
+
+  .song {
+    flex-basis: 45%;
+  }
+
+  .display-info {
+    width: 50%;
+  }
 }
