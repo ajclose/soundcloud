@@ -177,3 +177,12 @@ header {
     width: 30%;
   }
 }
+
+
+/*****************************Mobile Styling******************************/
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: red;
+  }
+}
