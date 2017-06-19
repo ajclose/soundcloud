@@ -13,10 +13,8 @@ function fetchArtists(search) {
       return response.json()
     })
     .then(function(json) {
-      console.log("data", json)
       for (var i = 0; i < json.length; i++) {
         const image = json[i].avatar_url
-        console.log(image);
         const name = json[i].username
         const id = json[i].id
         const html = `
@@ -40,7 +38,6 @@ function fetchArtists(search) {
         artist.addEventListener('click', function() {
           document.querySelector('.results').textContent = ''
           artistName = artist.querySelector('.name').textContent
-          console.log("artist:", artistName);
           let artistID = artist.id
           fetchTracks(artistID)
         })
@@ -62,7 +59,6 @@ function fetchTracks(artistid) {
 }
 
 function displayTracks(json) {
-  console.log(json);
   sort.style.visibility = "visible"
   if (json.length > 0) {
 
@@ -132,10 +128,8 @@ form.addEventListener('submit', function(event) {
 
 
 sort.addEventListener('change', function() {
-  console.log("clicked!");
   let option = sort.value
   document.querySelector('.results').textContent = ''
-  console.log(songs);
   songs.sort(function(a, b) {
     if (option === "title") {
       var songA = a.title;
