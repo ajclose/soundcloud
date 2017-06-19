@@ -39,7 +39,7 @@ header {
   justify-content: flex-start;
   align-items: center;
   background-color: rgba(0,0,0,0);  /*#bdc3c7*/
-  padding: 10px 25px;
+  padding: 10px;
   color: #34495e;
   border-radius: 10px;
 }
@@ -161,6 +161,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   width: 100%;
+  padding: 10px;
 }
 
 .copyright {

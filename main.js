@@ -9,17 +9,17 @@ function fetchArtists(search) {
   document.querySelector('.filter').value = "sort-by"
   sort.style.visibility = "hidden"
   fetch(`http://api.soundcloud.com/users/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&q=${search}`)
-   .then( function(response){
-     return response.json()
-   })
-   .then(function(json){
-     console.log("data", json)
-     for (var i = 0; i < json.length; i++) {
-       const image = json[i].avatar_url
-       console.log(image);
-       const name = json[i].username
-       const id = json[i].id
-       const html = `
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function(json) {
+      console.log("data", json)
+      for (var i = 0; i < json.length; i++) {
+        const image = json[i].avatar_url
+        console.log(image);
+        const name = json[i].username
+        const id = json[i].id
+        const html = `
        <div class="artist" id="${id}">
        <div class="image">
     <img src="${image}">
@@ -29,9 +29,9 @@ function fetchArtists(search) {
     </div>
     </div>
     `
-    document.querySelector(".results").insertAdjacentHTML('beforeend', html)
+        document.querySelector(".results").insertAdjacentHTML('beforeend', html)
 
-     }
+      }
     })
     .then(function() {
       const artists = document.querySelectorAll('.artist')
@@ -51,17 +51,17 @@ function fetchArtists(search) {
 
 function fetchTracks(artistid) {
   fetch(`http://api.soundcloud.com/users/${artistid}/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&limit=200`)
-  .then( function(response){
-    return response.json()
-  })
-  .then( function(json) {
-    songs = json
-    displayTracks(songs)
-  })
+    .then(function(response) {
+      return response.json()
+    })
+    .then(function(json) {
+      songs = json
+      displayTracks(songs)
+    })
 
 }
 
-function displayTracks(json){
+function displayTracks(json) {
   console.log(json);
   sort.style.visibility = "visible"
   if (json.length > 0) {
@@ -85,9 +85,9 @@ function displayTracks(json){
       `
       document.querySelector(".results").insertAdjacentHTML('beforeend', html)
     }
-} else {
-  document.querySelector('.results').textContent = 'Uh oh!  This artist doesn\'t have any songs available for free.'
-}
+  } else {
+    document.querySelector('.results').textContent = 'Uh oh!  This artist doesn\'t have any songs available for free.'
+  }
 
   const songs = document.querySelectorAll('.song')
   const audio = document.querySelector('.music-player')
@@ -103,20 +103,20 @@ function displayTracks(json){
       document.querySelector(".song-title").textContent = song.querySelector('.title').textContent
       audio.src = song.id + "?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f";
       audio.autoplay = true
-})
-}
+    })
+  }
 }
 
 
 function getReleaseDate(song) {
   let date = String(song.release_year)
   if (song.release_month < 10) {
-    date += "0"+String(song.release_month)
+    date += "0" + String(song.release_month)
   } else {
     date += String(song.release_month)
   }
   if (song.release_day < 10) {
-    date+= "0"+String(song.release_day)
+    date += "0" + String(song.release_day)
   } else {
     date += String(song.release_day)
   }
@@ -136,30 +136,30 @@ sort.addEventListener('change', function() {
   let option = sort.value
   document.querySelector('.results').textContent = ''
   console.log(songs);
-  songs.sort(function(a,b) {
+  songs.sort(function(a, b) {
     if (option === "title") {
-          var songA = a.title;
-          var songB = b.title;
-          if (songA < songB) {
-            return -1;
-          }
-          if (songA > songB) {
-            return 1;
-          }
-          return 0;
-        } else if (option === "popularity") {
-            var songA = a.playback_count
-            var songB = b.playback_count
-            return parseInt(songB) - parseInt(songA)
-        } else if (option === "releaseDateOld") {
-            var songA = getReleaseDate(a)
-            var songB = getReleaseDate(b)
-            return parseInt(songA) - parseInt(songB)
-        } else if (option === "releaseDateNew") {
-            var songA = getReleaseDate(a)
-            var songB = getReleaseDate(b)
-            return parseInt(songB) - parseInt(songA)
-        }
-    })
-    displayTracks(songs)
+      var songA = a.title;
+      var songB = b.title;
+      if (songA < songB) {
+        return -1;
+      }
+      if (songA > songB) {
+        return 1;
+      }
+      return 0;
+    } else if (option === "popularity") {
+      var songA = a.playback_count
+      var songB = b.playback_count
+      return parseInt(songB) - parseInt(songA)
+    } else if (option === "releaseDateOld") {
+      var songA = getReleaseDate(a)
+      var songB = getReleaseDate(b)
+      return parseInt(songA) - parseInt(songB)
+    } else if (option === "releaseDateNew") {
+      var songA = getReleaseDate(a)
+      var songB = getReleaseDate(b)
+      return parseInt(songB) - parseInt(songA)
+    }
+  })
+  displayTracks(songs)
 })
