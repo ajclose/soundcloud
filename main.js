@@ -1,22 +1,3 @@
-/*
-  Here is a guide for the steps you could take:
-*/
-
-// 1. First select and store the elements you'll be working with
-
-
-// 2. Create your `onSubmit` event for getting the user's search term
-
-
-// 3. Create your `fetch` request that is called after a submission
-
-
-// 4. Create a way to append the fetch results to your page
-
-
-// 5. Create a way to listen for a click that will play the song in the audio play
-
-
 const form = document.querySelector('form')
 const input = document.querySelector('.search-bar')
 const sort = document.querySelector('.filter')
@@ -79,48 +60,6 @@ function fetchTracks(artistid) {
   })
 
 }
-//     songs = json
-//     console.log(songs);
-//
-//     if (json.length > 0) {
-//
-//       for (var k = 0; k < json.length; k++) {
-//         const artwork = json[k].artwork_url
-//         const title = json[k].title
-//         const songSource = json[k].stream_url
-//         const artist = json[k].user.username
-//         const html = `
-//         <div class="song" id="${songSource}">
-//           <div class="artwork">
-//             <img src="${artwork}">
-//           </div>
-//           <div class="title">
-//             ${title}
-//           </div>
-//         </div>
-//         `
-//         document.querySelector(".results").insertAdjacentHTML('beforeend', html)
-//       }
-//   } else {
-//     document.querySelector('.results').textContent = 'Uh oh!  This artist doesn\'t have any songs available for free.'
-//   }
-//   })
-//   .then(function() {
-//     const songs = document.querySelectorAll('.song')
-//     const audio = document.querySelector('.music-player')
-//     for (var s = 0; s < songs.length; s++) {
-//       const song = songs[s]
-//       song.addEventListener('click', function() {
-//         document.querySelector('.artist-name').textContent = artistName
-//         document.querySelector('.album').src = song.querySelector('img').src
-//         document.querySelector(".song-title").textContent = song.querySelector('.title').textContent
-//         audio.src = song.id + "?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f";
-//         audio.autoplay = true
-//   })
-// }
-// })
-
-
 
 function displayTracks(json){
   console.log(json);
@@ -150,23 +89,22 @@ function displayTracks(json){
   document.querySelector('.results').textContent = 'Uh oh!  This artist doesn\'t have any songs available for free.'
 }
 
- // .then(function() {
   const songs = document.querySelectorAll('.song')
   const audio = document.querySelector('.music-player')
+  const album = document.querySelector('.album')
   for (var s = 0; s < songs.length; s++) {
     const song = songs[s]
     song.addEventListener('click', function() {
       const displayInfo = document.querySelector('.display-info')
       displayInfo.style.backgroundColor = "#bdc3c7"
       document.querySelector('.artist-name').textContent = artistName
-      document.querySelector('.album').src = song.querySelector('img').src
+      album.src = song.querySelector('img').src
+      album.style.visibility = "visible"
       document.querySelector(".song-title").textContent = song.querySelector('.title').textContent
       audio.src = song.id + "?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f";
       audio.autoplay = true
 })
 }
-// })
-// }
 }
 
 
@@ -200,16 +138,14 @@ sort.addEventListener('change', function() {
   console.log(songs);
   songs.sort(function(a,b) {
     if (option === "title") {
-          var songA = a.title; // ignore upper and lowercase
-          var songB = b.title; // ignore upper and lowercase
+          var songA = a.title;
+          var songB = b.title;
           if (songA < songB) {
             return -1;
           }
           if (songA > songB) {
             return 1;
           }
-
-          // names must be equal
           return 0;
         } else if (option === "popularity") {
             var songA = a.playback_count
@@ -227,57 +163,3 @@ sort.addEventListener('change', function() {
     })
     displayTracks(songs)
 })
-
-
-
-
-
-
-
-
-
-          //   document.querySelector('.results').textContent = ''
-          //   const option = document.querySelector('.filter').value
-          //   console.log(option);
-          //   const sorted = json.sort(function(a, b) {
-          //
-
-
-          //     console.log(sorted);
-          //
-          //   });
-
-
-        //     console.log(sorted);
-        //     for (var k = 0; k < json.length; k++) {
-        //       const artwork = json[k].artwork_url
-        //       const title = json[k].title
-        //       const songSource = json[k].stream_url
-
-        //       const html = `
-        //       <div class="song" id="${songSource}">
-        //         <div class="artwork">
-        //           <img src="${artwork}">
-        //         </div>
-        //         <div class="title">
-        //           ${title}
-        //           Plays: ${playbackCount}
-        //           Release Date: ${releaseDate}
-        //         </div>
-        //       </div>
-        //       `
-        //
-        //       document.querySelector(".results").insertAdjacentHTML('beforeend', html)
-        //     }
-        //   })
-        // }
-  //       .then(function() {
-
-  //
-  //             })
-  //           }
-  //         })
-  //       })
-  //     }
-  //   })
-  // }
