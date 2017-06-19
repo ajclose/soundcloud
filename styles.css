@@ -156,6 +156,24 @@ header {
   visibility: hidden;
 }
 
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  width: 75px;
+  margin: 10px;
+}
+
 /****************************Tablet styling******************************/
 
 @media screen and (max-width: 1024px) {
