@@ -8,7 +8,7 @@ function fetchArtists(search) {
   document.querySelector('.results').textContent = ""
   document.querySelector('.filter').value = "sort-by"
   sort.style.visibility = "hidden"
-  fetch(`http://api.soundcloud.com/users/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&q=${search}`)
+  fetch(`https://api.soundcloud.com/users/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&q=${search}`)
     .then(function(response) {
       return response.json()
     })
@@ -50,7 +50,7 @@ function fetchArtists(search) {
 
 
 function fetchTracks(artistid) {
-  fetch(`http://api.soundcloud.com/users/${artistid}/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&limit=200`)
+  fetch(`https://api.soundcloud.com/users/${artistid}/tracks/?client_id=095fe1dcd09eb3d0e1d3d89c76f5618f&limit=200`)
     .then(function(response) {
       return response.json()
     })
