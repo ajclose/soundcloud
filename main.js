@@ -35,6 +35,7 @@ function fetchArtists(search) {
      console.log("data", json)
      for (var i = 0; i < json.length; i++) {
        const image = json[i].avatar_url
+       console.log(image);
        const name = json[i].username
        const id = json[i].id
        const html = `
@@ -155,6 +156,8 @@ function displayTracks(json){
   for (var s = 0; s < songs.length; s++) {
     const song = songs[s]
     song.addEventListener('click', function() {
+      const displayInfo = document.querySelector('.display-info')
+      displayInfo.style.backgroundColor = "#bdc3c7"
       document.querySelector('.artist-name').textContent = artistName
       document.querySelector('.album').src = song.querySelector('img').src
       document.querySelector(".song-title").textContent = song.querySelector('.title').textContent
